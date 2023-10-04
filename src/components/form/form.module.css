@@ -1,0 +1,23 @@
+.mb {
+  margin-bottom: 24px;
+}
+
+.btn {
+  background-color: blue;
+  border-radius: 16px;
+  padding: 10px 24px;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.campo {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  text-decoration: underline;
+}
