@@ -1,0 +1,62 @@
+.fundo {
+  background: rgb(70, 72, 164);
+  background: linear-gradient(232deg, rgba(70, 72, 164, 1) 0%, rgba(36, 114, 144, 1) 96%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 28px;
+  color: #FFF;
+}
+
+.mb {
+  margin-bottom: 32px;
+}
+
+.btn {
+  background-color: blue;
+  border-radius: 16px;
+  padding: 10px 24px;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.campo {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.palavra {
+  display: flex;
+  gap: 2px;
+  border: 20px yellow solid;
+  margin: 10px;
+  text-align: center;
+  padding: 24px;
+}
+
+.lista__item {
+  background-color: #FFF;
+  color: #000;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  text-align: center;
+}
+
+.letrasDigitadas {
+  display: flex;
+  gap: 8px;
+}

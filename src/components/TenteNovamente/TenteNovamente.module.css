@@ -1,0 +1,22 @@
+.fundo {
+  background: rgb(70, 72, 164);
+  background: linear-gradient(232deg, rgba(70, 72, 164, 1) 0%, rgba(36, 114, 144, 1) 96%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 28px;
+  color: #FFF;
+}
+
+.btn {
+  background-color: blue;
+  border-radius: 16px;
+  padding: 10px 24px;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+  margin: 24px 0 0 24px;
+}
