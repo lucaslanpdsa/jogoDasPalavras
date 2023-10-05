@@ -3,11 +3,13 @@ import { useState } from 'react'
 import styles from './home.module.css'
 import Form from '../form/Form'
 
-function Home({ setLetraDigitada, letraDigitada }) {
-  const [palavra] = useState(['m', 'o', 'u', 's', 'e'])
-  const [dica] = useState('tem no computador')
+function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas, letrasCertas, setLetrasCertas, palavra }) {
+  const [dica] = useState('O Lucas ama mais que tudo no mundo')
   const [letra, setLetra] = useState()
   const [tentativas, setTentativas] = useState(3)
+  let letraDigitadaFilter = letraDigitada.filter(function (este, i) {
+    return letraDigitada.indexOf(este) === i;
+  });
 
   const inputLetra = (e) => {
     setLetra(e.target.value)
@@ -15,20 +17,18 @@ function Home({ setLetraDigitada, letraDigitada }) {
 
   const adicionaLetra = (e) => {
     e.preventDefault()
-    if (letraDigitada.length < 3) {
 
-      if (palavra.includes(letra)) {
-
-      }
-
+    if (palavra.includes(letra)) {
+      setLetrasCertas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
-      setTentativas(2 - letraDigitada.length)
-
-
-
-      document.querySelector('#inputLetra').value = ""
+      console.log(`Certas ${letrasCertas}`)
+    } else {
+      setLetrasErradas(prevList => [...prevList, letra])
+      setLetraDigitada(prevList => [...prevList, letra])
+      console.log(`Erradas ${letrasErradas}`)
     }
-    else (alert("voce perdeu!!"))
+
+    document.querySelector('#inputLetra').value = ""
   }
 
   return (
@@ -38,14 +38,16 @@ function Home({ setLetraDigitada, letraDigitada }) {
       <p className={styles.mb}>Voce ainda tem {tentativas} tentativa(s).</p>
       <div className={`${styles.mb} ${styles.palavra}`}>
         {palavra.map((letra, index) => (
-          <input key={index} type="text" name="" className={styles.lista__item} />
+          <li key={index} className={styles.lista__item}>
+            <p id={letra} className={letrasCertas.includes(letra) ? styles.letraCerta : styles.letraErrada}>{letra}</p>
+          </li>
         ))}
       </div>
       <p className={styles.mb}>Tente advinhar uma letra da palavra:</p>
       <Form inputLetra={inputLetra} adicionaLetra={adicionaLetra} />
       <div className={styles.letrasDigitadas}>
         letras digitadas:
-        {letraDigitada.map((letra, index) => (
+        {letraDigitadaFilter.map((letra, index) => (
           <p key={index}> {letra}, </p>
         ))}
       </div>
