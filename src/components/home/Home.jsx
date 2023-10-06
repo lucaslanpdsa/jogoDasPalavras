@@ -18,15 +18,16 @@ function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas
   const adicionaLetra = (e) => {
     e.preventDefault()
 
+
     if (palavra.includes(letra)) {
       setLetrasCertas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
-      console.log(`Certas ${letrasCertas}`)
     } else {
       setLetrasErradas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
-      console.log(`Erradas ${letrasErradas}`)
     }
+
+    setTentativas(3 - (letrasErradas.length + 1))
 
     document.querySelector('#inputLetra').value = ""
   }
