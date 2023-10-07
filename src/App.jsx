@@ -5,6 +5,7 @@ import VoceVenceu from './components/voceVenceu/VoceVenceu'
 
 function App() {
   const [palavra] = useState(['a', 'n', 'a'])
+
   const [letraDigitada, setLetraDigitada] = useState([])
   const [letrasErradas, setLetrasErradas] = useState([])
   const [letrasCertas, setLetrasCertas] = useState([])
