@@ -3,8 +3,7 @@ import { useState } from 'react'
 import styles from './home.module.css'
 import Form from '../form/Form'
 
-function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas, letrasCertas, setLetrasCertas, palavra }) {
-  const [dica] = useState('O Lucas ama mais que tudo no mundo')
+function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas, letrasCertas, setLetrasCertas, palavra, dica }) {
   const [letra, setLetra] = useState()
   const [tentativas, setTentativas] = useState(3)
   let letraDigitadaFilter = letraDigitada.filter(function (este, i) {
@@ -20,7 +19,7 @@ function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas
     if (palavra.includes(letra)) {
       setLetrasCertas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
-    } else {
+    } else if (!palavra.includes(letra) && letra !== 0) {
       setLetrasErradas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
     }
@@ -35,13 +34,13 @@ function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas
       <h1 className={styles.mb}>Advinhe a palavra:</h1>
       <p className={styles.mb}>Dica sobre a palavra: "{dica}"</p>
       <p className={styles.mb}>Voce ainda tem {tentativas} tentativa(s).</p>
-      <div className={`${styles.mb} ${styles.palavra}`}>
+      <ul className={`${styles.mb} ${styles.palavra}`}>
         {palavra.map((letra, index) => (
           <li key={index} className={styles.lista__item}>
             <p id={letra} className={letrasCertas.includes(letra) ? styles.letraCerta : styles.letraErrada}>{letra}</p>
           </li>
         ))}
-      </div>
+      </ul>
       <p className={styles.mb}>Tente advinhar uma letra da palavra:</p>
       <Form inputLetra={inputLetra} adicionaLetra={adicionaLetra} />
       <div className={styles.letrasDigitadas}>

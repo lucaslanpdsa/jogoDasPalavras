@@ -49,6 +49,7 @@
   margin: 10px;
   text-align: center;
   padding: 24px;
+  max-width: 100%;
 }
 
 .lista__item {

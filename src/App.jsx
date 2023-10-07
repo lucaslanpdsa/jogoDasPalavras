@@ -4,7 +4,33 @@ import { useState } from 'react'
 import VoceVenceu from './components/voceVenceu/VoceVenceu'
 
 function App() {
-  const [palavra] = useState(['a', 'n', 'a'])
+  const [palavras] = useState([
+    {
+      palavra: ['m', 'o', 'u', 's', 'e'],
+      dica: 'Tem no computador'
+    },
+    {
+      palavra: ['j', 'a', 'v', 'a'],
+      dica: 'Linguagem de programação'
+    },
+    {
+      palavra: ['p', 'l', 'e', 'n', 'o'],
+      dica: 'Nivel de programador'
+    },
+    {
+      palavra: ['b', 'a', 's', 'q', 'u', 'e', 't', 'e'],
+      dica: 'Esporte'
+    },
+    {
+      palavra: ['r', 'e', 'a', 'c', 't'],
+      dica: 'Framework javascript'
+    },
+  ])
+  const [numeroAleatorio] = useState([Math.floor(Math.random() * 5)])
+
+  const [dica] = useState(palavras[numeroAleatorio].dica)
+  console.log(dica)
+  const [palavra] = useState(palavras[numeroAleatorio].palavra)
 
   const [letraDigitada, setLetraDigitada] = useState([])
   const [letrasErradas, setLetrasErradas] = useState([])
@@ -19,7 +45,7 @@ function App() {
   const jogando = () => {
     return (
 
-      (letrasErradas.length < 3 && letrasCertasFilter.length !== novoArray.length) && (<Home palavra={palavra} letraDigitada={letraDigitada} setLetraDigitada={setLetraDigitada} letrasErradas={letrasErradas} setLetrasErradas={setLetrasErradas} letrasCertas={letrasCertas} setLetrasCertas={setLetrasCertas} />)
+      (letrasErradas.length < 3 && letrasCertasFilter.length !== novoArray.length) && (<Home palavra={palavra} letraDigitada={letraDigitada} setLetraDigitada={setLetraDigitada} letrasErradas={letrasErradas} setLetrasErradas={setLetrasErradas} letrasCertas={letrasCertas} setLetrasCertas={setLetrasCertas} dica={dica} />)
     )
   }
 
