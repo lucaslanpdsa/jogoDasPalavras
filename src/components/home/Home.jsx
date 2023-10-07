@@ -17,8 +17,6 @@ function Home({ setLetraDigitada, letraDigitada, letrasErradas, setLetrasErradas
 
   const adicionaLetra = (e) => {
     e.preventDefault()
-
-
     if (palavra.includes(letra)) {
       setLetrasCertas(prevList => [...prevList, letra])
       setLetraDigitada(prevList => [...prevList, letra])
