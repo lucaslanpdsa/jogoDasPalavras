@@ -29,7 +29,6 @@ function App() {
   const [numeroAleatorio] = useState([Math.floor(Math.random() * 5)])
 
   const [dica] = useState(palavras[numeroAleatorio].dica)
-  console.log(dica)
   const [palavra] = useState(palavras[numeroAleatorio].palavra)
 
   const [letraDigitada, setLetraDigitada] = useState([])
