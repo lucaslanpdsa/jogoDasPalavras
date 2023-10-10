@@ -5,7 +5,7 @@ function Form({ adicionaLetra, inputLetra }) {
   return (
     <>
       <form onSubmit={adicionaLetra} className={styles.mb}>
-        <input onChange={inputLetra} onTouch={adicionaLetra} required type="text" className={styles.campo} maxLength={1} id='inputLetra' placeholder='_' />
+        <input onChange={inputLetra} onTouch={adicionaLetra} onBlur={inputLetra} required type="text" className={styles.campo} maxLength={1} id='inputLetra' placeholder='_' />
         <input type="submit" value="jogar!" className={styles.btn} />
       </form>
     </>
